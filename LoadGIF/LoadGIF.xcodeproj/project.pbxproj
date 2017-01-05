@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1516D1201E1E2837006444E0 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1516D11F1E1E2837006444E0 /* icon.png */; };
+		1516D1241E1E2855006444E0 /* test.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1516D1231E1E2855006444E0 /* test.gif */; };
 		624512A21CCF526400B4AE6B /* CAKeyframeAnimationGIFView.m in Sources */ = {isa = PBXBuildFile; fileRef = 624512A11CCF526400B4AE6B /* CAKeyframeAnimationGIFView.m */; };
 		6252DB211CCF337800BAC5A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6252DB201CCF337800BAC5A9 /* main.m */; };
 		6252DB241CCF337800BAC5A9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6252DB231CCF337800BAC5A9 /* AppDelegate.m */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1516D11F1E1E2837006444E0 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		1516D1231E1E2855006444E0 /* test.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = test.gif; sourceTree = "<group>"; };
 		624512A01CCF526400B4AE6B /* CAKeyframeAnimationGIFView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAKeyframeAnimationGIFView.h; sourceTree = "<group>"; };
 		624512A11CCF526400B4AE6B /* CAKeyframeAnimationGIFView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAKeyframeAnimationGIFView.m; sourceTree = "<group>"; };
 		6252DB1C1CCF337800BAC5A9 /* LoadGIF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoadGIF.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +80,8 @@
 		6252DB1E1CCF337800BAC5A9 /* LoadGIF */ = {
 			isa = PBXGroup;
 			children = (
+				1516D1231E1E2855006444E0 /* test.gif */,
+				1516D11F1E1E2837006444E0 /* icon.png */,
 				6252DB361CCF338200BAC5A9 /* 1.gif */,
 				6252DB381CCF35D700BAC5A9 /* 2.gif */,
 				62E50A841CD0A0A0002A4750 /* 3.gif */,
@@ -139,6 +145,7 @@
 				TargetAttributes = {
 					6252DB1B1CCF337800BAC5A9 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = BMC43J69VA;
 					};
 				};
 			};
@@ -168,6 +175,8 @@
 				62E50A851CD0A0A0002A4750 /* 3.gif in Resources */,
 				6252DB2F1CCF337800BAC5A9 /* LaunchScreen.storyboard in Resources */,
 				6252DB391CCF35D700BAC5A9 /* 2.gif in Resources */,
+				1516D1201E1E2837006444E0 /* icon.png in Resources */,
+				1516D1241E1E2855006444E0 /* test.gif in Resources */,
 				6252DB2C1CCF337800BAC5A9 /* Assets.xcassets in Resources */,
 				6252DB371CCF338200BAC5A9 /* 1.gif in Resources */,
 				6252DB2A1CCF337800BAC5A9 /* Main.storyboard in Resources */,
@@ -301,6 +310,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BMC43J69VA;
 				INFOPLIST_FILE = LoadGIF/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bourbonz.LoadGIF;
@@ -312,6 +322,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BMC43J69VA;
 				INFOPLIST_FILE = LoadGIF/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bourbonz.LoadGIF;

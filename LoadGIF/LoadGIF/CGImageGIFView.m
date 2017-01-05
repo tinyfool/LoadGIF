@@ -20,7 +20,7 @@
 @property (nonatomic,assign,readwrite) BOOL isAnimating;
 @end
 @implementation CGImageGIFView
-
+@synthesize updateImage;
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -57,11 +57,26 @@
 }
 -(void)play
 {
+    CGFloat width = self.frame.size.width;
+    CGFloat height = self.frame.size.height;
     index = index + 1;
     index=  index % count;
     //方法的内容是根据上面拿到的imageSource来获取gif内部的第几张图片，拿到后在进行layer重新填充
-    CGImageRef currentRef = CGImageSourceCreateImageAtIndex(gifRef, index, (CFDictionaryRef)gifProperties);
-    self.layer.contents = (id)CFBridgingRelease(currentRef);
+    
+    CGImageRef imageRef = CGImageSourceCreateImageAtIndex(gifRef, index, (CFDictionaryRef)gifProperties);
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef ctx = CGBitmapContextCreate(nil,
+                                             width, height,
+                                             8,
+                                             0,
+                                             colorSpace,
+                                             kCGBitmapByteOrder32Little | kCGImageAlphaNoneSkipFirst);
+    CGContextDrawImage(ctx, CGRectMake(0, 0, width, height), imageRef);
+    if (updateImage)
+        updateImage(ctx,index);
+    
+    CGImageRef ret = CGBitmapContextCreateImage(ctx);
+    self.layer.contents = (id)CFBridgingRelease(ret);
 }
 -(void)stopGIF
 {

@@ -24,7 +24,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self loadCADisplayLineImageView];
+    [self loadGIFWithCGImage];
+    //[self loadCADisplayLineImageView];
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
@@ -48,15 +49,24 @@
 }
 -(void)loadGIFWithCGImage
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"2" ofType:@"gif"];
-    gifView = [[CGImageGIFView alloc] initWithGIFPath:path];
-    [gifView setCenter:self.view.center];
-    [self.view addSubview:gifView];
-    [gifView startGIF];
+    
+    UIImage* iconImage = [UIImage imageNamed:@"icon.png"];
+    CGImageRef imageRef = iconImage.CGImage;
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"gif"];
+    for (int i = 0;i<1;i++) {
+        gifView = [[CGImageGIFView alloc] initWithGIFPath:path];
+        gifView.frame = CGRectMake(20,20, 200, 200);
+        [self.view addSubview:gifView];
+        gifView.updateImage = ^(CGContextRef ctx,size_t index) {
+            CGContextDrawImage(ctx, CGRectMake(index*5,index*5, 60, 60), imageRef);
+        };
+        [gifView startGIF];
+    }
+    
 }
 -(void)loadCAKeyframeAnimation
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"1" ofType:@"gif"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"gif"];
     otherGifView = [[CAKeyframeAnimationGIFView alloc] initWithCAKeyframeAnimationWithPath:path];
     otherGifView.center = self.view.center;
     [self.view addSubview:otherGifView];
@@ -67,7 +77,7 @@
     displayImageView = [[CADisplayLineImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height)];
     [displayImageView setCenter:self.view.center];
     [self.view addSubview:displayImageView];
-    [displayImageView setImage:[CADisplayLineImage imageNamed:@"3.gif"]];
+    [displayImageView setImage:[CADisplayLineImage imageNamed:@"1.gif"]];
     
 }
 @end

@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CGImageGIFView : UIView
+@interface CGImageGIFView : UIView {
+}
 
 @property (nonatomic,assign,readonly) BOOL isAnimating;
 
@@ -16,5 +17,5 @@
 
 -(void)startGIF;
 -(void)stopGIF;
-
+@property void (^updateImage)(CGContextRef ctx,size_t index);
 @end
