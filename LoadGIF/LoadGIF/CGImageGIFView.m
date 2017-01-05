@@ -76,6 +76,10 @@
         updateImage(ctx,index);
     
     CGImageRef ret = CGBitmapContextCreateImage(ctx);
+    
+    CFRelease(imageRef);
+    CFRelease(colorSpace);
+    CFRelease(ctx);
     self.layer.contents = (id)CFBridgingRelease(ret);
 }
 -(void)stopGIF

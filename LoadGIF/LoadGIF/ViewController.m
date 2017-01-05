@@ -51,14 +51,13 @@
 {
     
     UIImage* iconImage = [UIImage imageNamed:@"icon.png"];
-    CGImageRef imageRef = iconImage.CGImage;
     NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"gif"];
     for (int i = 0;i<1;i++) {
         gifView = [[CGImageGIFView alloc] initWithGIFPath:path];
         gifView.frame = CGRectMake(20,20, 200, 200);
         [self.view addSubview:gifView];
         gifView.updateImage = ^(CGContextRef ctx,size_t index) {
-            CGContextDrawImage(ctx, CGRectMake(index*5,index*5, 60, 60), imageRef);
+            CGContextDrawImage(ctx, CGRectMake(index*5,index*5, 60, 60), iconImage.CGImage);
         };
         [gifView startGIF];
     }
