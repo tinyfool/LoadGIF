@@ -14,8 +14,9 @@
 @property (nonatomic,assign,readonly) BOOL isAnimating;
 
 -(instancetype)initWithGIFPath:(NSString *)path;
-
 -(void)startGIF;
 -(void)stopGIF;
 @property void (^updateImage)(CGContextRef ctx,size_t index);
+
+@property BOOL isOverLap;
 @end

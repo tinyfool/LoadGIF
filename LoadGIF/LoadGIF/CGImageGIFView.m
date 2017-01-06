@@ -21,6 +21,7 @@
 @end
 @implementation CGImageGIFView
 @synthesize updateImage;
+@synthesize isOverLap;
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -43,6 +44,7 @@
         UIImage *image = [UIImage imageWithContentsOfFile:path];
         self.frame = CGRectMake(0, 0, image.size.width, image.size.height);
         self.isAnimating = NO;
+        self.isOverLap = NO;
     }
     return self;
 }
@@ -71,10 +73,15 @@
                                              0,
                                              colorSpace,
                                              kCGBitmapByteOrder32Little | kCGImageAlphaNoneSkipFirst);
-    CGContextDrawImage(ctx, CGRectMake(0, 0, width, height), imageRef);
+    if (!isOverLap)
+        CGContextDrawImage(ctx, CGRectMake(0, 0, width, height), imageRef);
+    
     if (updateImage)
         updateImage(ctx,index);
     
+    if (isOverLap)
+        CGContextDrawImage(ctx, CGRectMake(0, 0, width, height), imageRef);
+        
     CGImageRef ret = CGBitmapContextCreateImage(ctx);
     
     CFRelease(imageRef);
